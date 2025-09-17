@@ -94,6 +94,23 @@ function handleEditClick(li){
     }
 }
 
+function createDoneButton(taskSpan){
+    const currentText = document.createElement("button");
+    doneBtn.style.marginLeft = "8px";
+    doneBtn.onclick = () => {
+        console.log(li);
+        li.classList.add("done");
+        const buttons =li.querySelectorAll("button");
+
+        button.forEach(btn => {
+            btn.disable = true;
+        });
+
+        console.log("Task Completed", li.textContent, Date());
+    }
+    return doneBtn;
+}
+
 </script>
 </body>
 </html>
