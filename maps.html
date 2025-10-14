@@ -20,15 +20,6 @@
     <div id="map"></div>
 </body>
 <script>
-    var map = L.map('map').setView([8.359300128287973, 124.86907287191958], 13);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    var marker = L.marker([8.359300128287973, 124.86907287191958]).addTo(map);
-    marker.bindPopup("<b>Labaratory 2</b><br>Ania ka").openPopup();
-
     function initMap(mapDatUrl){
         const map = L.map('map').setView([8.3500, 124.8500], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -47,5 +38,9 @@
             })
             .catch(error => console.error("Error loading map data:", error));
     }
+
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap("maps.json");  
+    });
 </script>
 </html>
