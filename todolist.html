@@ -54,70 +54,74 @@
         const deleteBtn = createDeleteButton(li);
         li.appendChild(deleteBtn);
 
-        const taskSpam = document.createElement("span")
-        taskSpam.textContent = taskText;
-        const editBtn = createEditButton(li,textSpam);
+        const taskSpan = document.createElement("span")
+        taskSpan.textContent = taskText;
+        const editBtn = createEditButton(li,textSpan);
         li.appendChild(editBtn);
+
+        const doneBtn = createDoneButton(li);
+        li.appendChild(doneBtn);
     }
 
-function createDeleteButton(li){
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = " X ";
-    deleteBtn.className = "delete-btn";
-    deleteBtn.style.marginleft = "8px";
-    deleteBtn.onclick = () => handleDeleteClick(li);
+    function createDeleteButton(li){
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = " Delete ";
+        deleteBtn.className = "delete-btn";
+        deleteBtn.style.marginleft = "8px";
+        deleteBtn.onclick = () => handleDeleteClick(li);
 
-    console.log("createDeleteButton() called ->", li.textContent);
-    return deleteBtn;
+        console.log("createDeleteButton() called ->", li.textContent);
+        return deleteBtn;
 
-}
-
-function handleDeleteClick(li){
-    console.log("handleDeleteClick() ->", li.textContent.replace(" X ","").trim(),Date())
-li.remove();
-    
-}
-
-function createEditButton(li,taskSpan){
-    const editBtn = document.createElement("button");
-    editBtn.textContent = "Edit";
-    editBtn.style.marginLeft = "8px";
-    editBtn.onclick = () => handleEditClick(li);
-
-    console.log("createEditButton() called ->:", taskSpan.textContent);
-    return editBtn;
-}
-
-function handleEditClick(li){
-    const currentText = li.firstChild.textContent.trim();
-    console.log("handleEditClick() -> current:", currentText, Date());
-
-    const newText = prompt("Edit yuor task", currentText);
-
-    if(newText !== null && newText.trim() !==""){
-        li.firstChild.textContent = newText.trim();
-        console.log("handleEditClick() -> updted to: ", newText.trim(), Date());
-    } else {
-        console.log("handleEditClick -> no changes made");
     }
-}
 
-function createDoneButton(taskSpan){
-    const currentText = document.createElement("button");
-    doneBtn.style.marginLeft = "8px";
-    doneBtn.onclick = () => {
-        console.log(li);
-        li.classList.add("done");
-        const buttons =li.querySelectorAll("button");
-
-        button.forEach(btn => {
-            btn.disable = true;
-        });
-
-        console.log("Task Completed", li.textContent, Date());
+    function handleDeleteClick(li){
+        console.log("handleDeleteClick() ->", li.textContent.replace(" X ","").trim(),Date());
+        li.remove();
+        
     }
-    return doneBtn;
-}
+
+    function createEditButton(li,taskSpan){
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "Edit";
+        editBtn.style.marginLeft = "8px";
+        editBtn.onclick = () => handleEditClick(li);
+
+        console.log("createEditButton() called ->:", taskSpan.textContent);
+        return editBtn;
+    }
+
+    function handleEditClick(li){
+        const currentText = li.firstChild.textContent.trim();
+        console.log("handleEditClick() -> current:", currentText, Date());
+
+        const newText = prompt("Edit yuor task", currentText);
+
+        if(newText !== null && newText.trim() !==""){
+            li.firstChild.textContent = newText.trim();
+            console.log("handleEditClick() -> updted to: ", newText.trim(), Date());
+        } else {
+            console.log("handleEditClick -> no changes made");
+        }
+    }
+
+    function createDoneButton(li){
+        const currentText = document.createElement("button");
+        doneBtn.textContent = "Done";
+        doneBtn.style.marginLeft = "8px";
+        doneBtn.onclick = () => {
+            console.log(li);
+            li.classList.add("done");
+            const buttons =li.querySelectorAll("button");
+
+            button.forEach(btn => {
+                btn.disable = true;
+            });
+
+            console.log("Task Completed", li.textContent, Date());
+        }
+        return doneBtn;
+    }
 
 </script>
 </body>
