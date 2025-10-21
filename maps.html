@@ -37,7 +37,11 @@
             .then(data => {
                 data.forEach(pin => {
                     const marker = L.marker([pin.lat, pin.lng]).addTo(map);
-                    marker.bindPopup(`<b>${pin.name}</b><br>${pin.description}`);
+                    const img = `<img class="popup-image" src="${pin.image}" alt="${pin.name}"/>`;
+                    marker.bindPopup(`
+                    ${img}<br>
+                    <b>${pin.name}</b><br>
+                    ${pin.description}`);
                 });
             })
             .catch(error => console.error("Error loading map data:", error));
