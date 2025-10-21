@@ -6,6 +6,13 @@
         "img":"https://s28164.pcdn.co/files/capybara-1920x1080-2024-600x400.jpg",
         "lat":8.3593,
         "lng":124.8691
-        
+    },
+    {
+        "name":"ICS LABARATORY 2",
+        "title":"ICS LAB 2",
+        "description":"This is the second ICS Laboratory located in the campus.",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
+        "lat":8.3585,
+        "lng":124.8700
     }
 ]

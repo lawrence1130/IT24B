@@ -41,7 +41,9 @@
                     marker.bindPopup(`
                     ${img}<br>
                     <b>${pin.name}</b><br>
-                    ${pin.description}`);
+                    ${pin.description}
+                    `);
+                    console.log("Pin added: "+pin.name+ " "+ Date());
                 });
             })
             .catch(error => console.error("Error loading map data:", error));
