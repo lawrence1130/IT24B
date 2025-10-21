@@ -1,8 +1,11 @@
 [
     {
         "name":"ICS LABARATORY 1",
+        "title":"ICS LAB 1",
+        "description":"This is the first ICS Laboratory located in the campus.",
+        "img":"ihttps://www.google.com/url?sa=i&url=https%3A%2F%2Fthemeadowswildlifepark.co.uk%2Fproduct%2Fcapybara-encounter%2F&psig=AOvVaw1eubu8nAuVACe-urDgggfI&ust=1761110516878000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCNjS64vGtJADFQAAAAAdAAAAABA5",
         "lat":8.3593,
-        "lng":124.8691,
-        "description":"This is the first ICS Laboratory located in the campus."
+        "lng":124.8691
+        
     }
 ]
