@@ -12,10 +12,13 @@
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
      <style>
-        #map { height: 500px;}
+        #map { 
+            height: 500px;
+        }
         .popup-image{
-            width: 100px;
+            width: 200px;
             height: auto;
+            object-fit: fill;;
         }
      </style>
 </head>
@@ -37,10 +40,10 @@
             .then(data => {
                 data.forEach(pin => {
                     const marker = L.marker([pin.lat, pin.lng]).addTo(map);
-                    const img = `<img class="popup-image" src="${pin.image}" alt="${pin.name}"/>`;
+                    const img = `<img src='${pin.img}' class ='popup-image'>`;
                     marker.bindPopup(`
                     ${img}<br>
-                    <b>${pin.name}</b><br>
+                    <br>${pin.name}</br><br>
                     ${pin.description}
                     `);
                     console.log("Pin added: "+pin.name+ " "+ Date());
