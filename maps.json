@@ -14,5 +14,13 @@
         "img":"https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
         "lat":8.359266449838227,
         "lng":124.86905699591024
+    },
+    {
+        "name":"OFFICE",
+        "title":"Meet up Place",
+        "description":"Tagpuan nang mga pips",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/4/40/7-eleven_logo.svg",
+        "lat":8.36755049437296,  
+        "lng":124.8651464389351
     }
 ]
