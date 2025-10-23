@@ -1,0 +1,26 @@
+[
+    {
+        "name":"ICS LABARATORY 1",
+        "title":"ICS LAB 1",
+        "description":"This is the first ICS Laboratory located in the campus.",
+        "img":"https://s28164.pcdn.co/files/capybara-1920x1080-2024-600x400.jpg",
+        "lat":8.3593,
+        "lng":124.8691
+    },
+    {
+        "name":"ICS LABARATORY 2",
+        "title":"ICS LAB 2",
+        "description":"This is the second ICS Laboratory located in the campus.",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
+        "lat":8.359266449838227,
+        "lng":124.86905699591024
+    },
+    {
+        "name":"OFFICE",
+        "title":"Meet up Place",
+        "description":"Tagpuan nang mga pips",
+        "img":"https://upload.wikimedia.org/wikipedia/commons/4/40/7-eleven_logo.svg",
+        "lat":8.36755049437296,  
+        "lng":124.8651464389351
+    }
+]
