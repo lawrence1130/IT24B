@@ -54,6 +54,18 @@
                     if (!markerGroups[type]){
                         markerGroups[type] = L.layerGroup().addTo(map);
                     }
+
+                    const marker = L.marker([pin.lat, pin.lng]).addTo(map);
+                    const img = `<img src='${pin.img}' class ='popup-image'>`;
+                        marker.bindPopup(`
+                            ${img}<br>
+                            <br>${pin.name}</br><br>
+                            ${pin.description}
+                    `);
+                    console.log("Pin added: "+pin.name+ " "+ Date());
+
+                    markerGroups[type].addLayer(marker);
+                });
                     
             })
     }
