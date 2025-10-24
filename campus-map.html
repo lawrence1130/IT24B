@@ -79,6 +79,8 @@
                 Object.keys(markerGroups).forEach(type => {
                     overlayMaps[type] = markerGroups[type];
                 });
+
+                L.comtrol.layers(baseMaps, overlayMaps).addTo(map);
                     
             })
     }
