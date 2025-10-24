@@ -33,8 +33,12 @@
 
         const OpenStreetMap = L.tilelayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; Open'op
-        })
+            attribution: '&copy; OpenStreetMap contributors'
+        });
+
+        const satellite = L.tileLayer('https://server.arcgisoline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: '&copy; OpenTopoMap contributors'
+        });
 
         openStreetMap.addTo(map);
         console.log("Map loaded"+ Date());
