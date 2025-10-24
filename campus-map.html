@@ -66,6 +66,8 @@
 
                     markerGroups[type].addLayer(marker);
                 });
+
+                Object.values(markerGroups).forEach(group => group.addTo(map));
                     
             })
     }
