@@ -23,37 +23,25 @@
      </style>
 </head>
 <body>
-    <h1>Map</h1>
+    <h1>Campus Map</h1>
     <div id="map"></div>
 </body>
 <script>
-    function initMap(mapDatUrl){
-        const map = L.map('map').setView([8.3593, 124.8691], 13);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-        console.log("Map loaded"+ Date());
 
-        fetch (mapDatUrl)
-            .then(response => response.json())
-            .then(data => {
-                data.forEach(pin => {
-                    const marker = L.marker([pin.lat, pin.lng]).addTo(map);
-                    const img = `<img src='${pin.img}' class ='popup-image'>`;
-                    marker.bindPopup(`
-                    ${img}<br>
-                    <br>${pin.name}</br><br>
-                    ${pin.description}
-                    `);
-                    console.log("Pin added: "+pin.name+ " "+ Date());
-                });
-            })
-            .catch(error => console.error("Error loading map data:", error));
+    function initMap(mapDataUr){
+        const map = L.map('map').setView([8.3603,124.8684],17);
+
+        const OpenStreetMap = L.tilelayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; Open'op
+        })
+
+        openStreetMap.addTo(map);
+        console.log("Map loaded"+ Date());
     }
 
     document.addEventListener("DOMContentLoaded", function(){
-        initMap("maps.json");  
+        initMap("campus-map.json");  
     });
 </script>
 </html>
