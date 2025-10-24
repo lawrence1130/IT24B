@@ -46,7 +46,16 @@
         const markerGroups ={};
 
         fetch (mapDataUrl)
-            .then(reponse)
+            .then(reponse => response.json())
+            .then(data => {
+                data.forEach(pin => {
+                    const type = pin.locationType || "Other";
+
+                    if (!markerGroups[type]){
+                        markerGroups[type] = L.layerGroup().addTo(map);
+                    }
+                    
+            })
     }
 
     document.addEventListener("DOMContentLoaded", function(){
