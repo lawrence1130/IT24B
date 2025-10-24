@@ -5,7 +5,8 @@
         "description":"This is the first ICS Laboratory located in the campus.",
         "img":"https://s28164.pcdn.co/files/capybara-1920x1080-2024-600x400.jpg",
         "lat":8.3593,
-        "lng":124.8691
+        "lng":124.8691,
+        "locationType":"Laboratory"
     },
     {
         "name":"ICS LABARATORY 2",
