@@ -7,20 +7,19 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
-    <!-- Make sure you put this AFTER Leaflet's CSS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
-     <style>
+    <style>
         #map { 
-            height: 1000px;
+            height: 500px;
         }
         .popup-image{
             width: 300px;
             height: auto;
             object-fit:contain;
         }
-     </style>
+    </style>
 </head>
 <body>
     <h1>Campus Map</h1>
@@ -28,31 +27,31 @@
 </body>
 <script>
 
-    function initMap(mapDataUr){
+    function initMap(mapDataUrl){
         const map = L.map('map').setView([8.3603,124.8684],17);
 
-        const OpenStreetMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        const openStreetMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; OpenStreetMap contributors'
         });
 
         const satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Tiles (c) Ersi &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+            attribution: 'Tiles (c) Ersi &mdash; Source, Maxar, Earthstar Geographics, and GIS User Community'
         });
 
-        OpenStreetMap.addTo(map);
+        openStreetMap.addTo(map);
         console.log("Map loaded"+ Date());
 
         const markerGroups ={};
 
         fetch (mapDataUrl)
-            .then(reponse => response.json())
+            .then(response => response.json())
             .then(data => {
                 data.forEach(pin => {
                     const type = pin.locationType || "Other";
 
                     if (!markerGroups[type]){
-                        markerGroups[type] = L.layerGroup().addTo(map);
+                        markerGroups[type] = L.layerGroup();
                     }
 
                     const marker = L.marker([pin.lat, pin.lng]).addTo(map);
@@ -60,9 +59,10 @@
                         marker.bindPopup(`
                             ${img}<br>
                             <br>${pin.name}</br><br>
-                            ${pin.description}
+                            ${pin.description}<br>
+                            ${pin.locationType}
                     `);
-                    console.log("Pin added: "+pin.name+ " "+ Date());
+                    console.log(`${pin.name} Loaded` + Date());
 
                     markerGroups[type].addLayer(marker);
                 });
@@ -80,14 +80,14 @@
                     overlayMaps[type] = markerGroups[type];
                 });
 
-                L.control.tileLayer(baseMaps, overlayMaps).addTo(map);
+                L.control.layers(baseMaps, overlayMaps, {collapsed:false}).addTo(map);
                     
             })
-            .catch(error => console.error("Error loading map data:", error));
+            .catch(error => console.error('Error loading JSON', error));
     }
 
-    document.addEventListener("DOMContentLoaded", function(){
-        initMap("campus-map.json");  
+    document.addEventListener("DOMContentLoaded", ()=>{
+        initMap('campus-map.json');  
     });
 </script>
 </html>
