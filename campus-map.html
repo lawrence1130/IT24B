@@ -68,6 +68,17 @@
                 });
 
                 Object.values(markerGroups).forEach(group => group.addTo(map));
+
+                const baseMaps ={
+                    "OpenStreetMap": openStreetMap,
+                    "Satellite": satellite
+                }
+
+                const overlayMaps = {};
+
+                Object.keys(markerGroups).forEach(type => {
+                    overlayMaps[type] = markerGroups[type];
+                });
                     
             })
     }
