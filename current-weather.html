@@ -7,15 +7,15 @@
 </head>
 <body>
     <h1>Current Weather</h1>
-    <button onclick="fetchWeather()">Get Current Weather</button>
+    <button onclick="getWeather()">Get Current Weather</button>
     <div id="weatherResult"></div>
 </body>
 <script>
     const apiKey = "3009b71d9991d32d8b810ad3e9086bc9";
 
-    async function fetchWeather(){
+    async function getWeather(){
         console.log("Prompt opened"+ Date());
-        const city = promt("Enter a city name");
+        const city = prompt("Enter a city name");
         console.log("Prompt closed"+Date());
 
         if(!city){
@@ -29,8 +29,7 @@
 
         try{
             const response = await fetch(url);
-            if (!response.ok){
-                throw new Error ("City not found");
+            if (!response.ok) throw new Error ("City not found");
                 
                 const data = await response.json();
 
@@ -42,11 +41,11 @@
                     <p>Humidity: ${data.main.humidity}%</p>
                     <p>Wind Speed: ${data.wind.speed} m/s</p>
                 `;
-            }
-    } catch (error){
-        alert (error.message);
-        console.log("Error fetching weather data"+ Date());
-    }
+            
+        } catch (error){
+            alert ("Error: "+ error.message);
+            console.log("Error fetching weather data"+ error.message);
+        }
     }
 </script>
 </html>
