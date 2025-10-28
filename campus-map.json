@@ -25,5 +25,14 @@
         "lat":8.36755049437296,  
         "lng":124.8651464389351,
         "locationType":"Tambayan"
+    },
+    {
+        "name":"Kulago",
+        "title":"Mt.",
+        "description":"A place to meditate.",
+        "img":"https://www.destinationsandtea.com/wp-content/uploads/2022/07/IMG_8723.jpg",
+        "lat":8.32337,
+        "lng":125.04628,
+        "locationType":"Hike Site"
     }
 ]
