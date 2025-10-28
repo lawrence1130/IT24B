@@ -7,9 +7,11 @@
 </head>
 <body>
     <h1>Current Weather</h1>
+    <button onclick="fetchWeather()">Get Current Weather</button>
+    <div id="weatherResult"></div>
 </body>
 <script>
-    const apiKey = "";
+    const apiKey = "3009b71d9991d32d8b810ad3e9086bc9";
 
     async function fetchWeather(){
         console.log("Prompt opened"+ Date());
@@ -32,7 +34,7 @@
                 
                 const data = await response.json();
 
-                const weatherResult = document.createElement ("weatherResult");
+                const weatherResult = document.getElementById ("weatherResult");
                 weatherResult.innerHTML =`
                     <h2>${data.name},${data.sys.country}</h2>
                     <p>Temperature: ${data.main.temp} °C</p>
@@ -41,6 +43,10 @@
                     <p>Wind Speed: ${data.wind.speed} m/s</p>
                 `;
             }
+    } catch (error){
+        alert (error.message);
+        console.log("Error fetching weather data"+ Date());
+    }
     }
 </script>
 </html>
